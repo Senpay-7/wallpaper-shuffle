@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Wallpaper Shuffle</string>
+    <string name="wallpaper_description">Your photos, GIFs and videos as a wallpaper carousel.</string>
+    <string name="lang_switch">RU</string>
+    <string name="add">+ Add</string>
+    <string name="add_title">Add wallpapers</string>
+    <string name="add_gallery">From gallery</string>
+    <string name="add_folder">Whole folder</string>
+    <string name="empty_title">Add your wallpapers</string>
+    <string name="empty_note">Photos, GIFs and videos. Later, tap a picture to turn it on or off.</string>
+    <string name="next">Next</string>
+    <string name="every">Every %s</string>
+    <string name="only_unlock">On unlock</string>
+    <string name="install">Set wallpaper</string>
+    <string name="installed">✓ Wallpaper is set</string>
+    <string name="not_installed">Wallpaper is not set yet</string>
+    <string name="next_in">Next in %s</string>
+    <string name="changes_on_unlock">Changes on unlock</string>
+    <string name="my_walls">My wallpapers · %1$d of %2$d on</string>
+    <string name="all_on">All on</string>
+    <string name="all_off">All off</string>
+    <string name="hint">Tap a picture to turn it on or off. Hold for more.</string>
+    <string name="show_now">Show now</string>
+    <string name="delete">Delete</string>
+    <string name="delete_q">Delete this picture from the app? The original stays on your phone.</string>
+    <string name="cancel">Cancel</string>
+    <string name="need_on">Turn on at least one picture first.</string>
+    <string name="timer_title">Change every</string>
+    <string name="hours">h</string>
+    <string name="minutes">min</string>
+    <string name="seconds">sec</string>
+    <string name="also_unlock">Also change on every unlock</string>
+    <string name="timer_hint">Set all to 0 to change only on unlock.</string>
+    <string name="ok">OK</string>
+    <string name="copying">Copying…</string>
+    <string name="progress_fmt">Copied: %d</string>
+    <string name="added_fmt">Added: %d</string>
+    <string name="no_space">Not enough free storage.</string>
+    <string name="no_picker">This phone does not offer a live wallpaper picker.</string>
+    <string name="gestures_note">Double tap the wallpaper for next, triple tap for previous.</string>
+    <string name="play_error">This file could not be played. Try another file or an MP4 (H.264) video.</string>
+    <string name="folder_denied">Folder access was not granted.</string>
+</resources>

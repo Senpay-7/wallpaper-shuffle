@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wallpaper_description">Карусель обоев из ваших фото, GIF и видео.</string>
+    <string name="lang_switch">EN</string>
+    <string name="add">+ Добавить</string>
+    <string name="add_title">Добавить обои</string>
+    <string name="add_gallery">Из галереи</string>
+    <string name="add_folder">Папку целиком</string>
+    <string name="empty_title">Добавь свои обои</string>
+    <string name="empty_note">Фото, GIF и видео. Потом нажимай на картинку, чтобы включить или выключить её.</string>
+    <string name="next">Следующие</string>
+    <string name="every">Каждые %s</string>
+    <string name="only_unlock">При разблокировке</string>
+    <string name="install">Установить обои</string>
+    <string name="installed">✓ Обои установлены</string>
+    <string name="not_installed">Обои ещё не установлены</string>
+    <string name="next_in">Следующие через %s</string>
+    <string name="changes_on_unlock">Меняются при разблокировке</string>
+    <string name="my_walls">Мои обои · включено %1$d из %2$d</string>
+    <string name="all_on">Вкл. все</string>
+    <string name="all_off">Выкл. все</string>
+    <string name="hint">Нажми на картинку — включить или выключить. Удерживай — ещё.</string>
+    <string name="show_now">Показать сейчас</string>
+    <string name="delete">Удалить</string>
+    <string name="delete_q">Удалить картинку из приложения? Оригинал на телефоне останется.</string>
+    <string name="cancel">Отмена</string>
+    <string name="need_on">Сначала включи хотя бы одну картинку.</string>
+    <string name="timer_title">Менять каждые</string>
+    <string name="hours">ч</string>
+    <string name="minutes">мин</string>
+    <string name="seconds">с</string>
+    <string name="also_unlock">Также менять при каждой разблокировке</string>
+    <string name="timer_hint">Поставь всё на 0, чтобы менять только при разблокировке.</string>
+    <string name="ok">ОК</string>
+    <string name="copying">Копирую…</string>
+    <string name="progress_fmt">Скопировано: %d</string>
+    <string name="added_fmt">Добавлено: %d</string>
+    <string name="no_space">Недостаточно свободной памяти.</string>
+    <string name="no_picker">На этом телефоне нет окна выбора живых обоев.</string>
+    <string name="gestures_note">Двойное касание обоев — следующие, тройное — предыдущие.</string>
+    <string name="play_error">Этот файл не воспроизводится. Попробуй другой файл или видео MP4 (H.264).</string>
+    <string name="folder_denied">Доступ к папке не выдан.</string>
+</resources>

@@ -1,0 +1,18 @@
+package app.wallpapershuffle;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import java.util.*;
+
+public class PlaybackTest {
+    @Test public void fullCyclesAreUniqueAndBoundaryDoesNotRepeat(){Playback p=new Playback();List<Long> ids=List.of(1L,2L,3L,4L,5L);Random r=new Random(17);long last=-1;for(int cycle=0;cycle<100;cycle++){HashSet<Long> seen=new HashSet<>();for(int i=0;i<ids.size();i++){long n=p.next(ids,true,r,100,500);assertNotEquals(last,n);assertTrue(seen.add(n));last=n;}assertEquals(new HashSet<>(ids),seen);}}
+    @Test public void newImportsJoinCurrentCycleWithoutReplayingConsumedItems(){Playback p=new Playback();Random r=new Random(1);List<Long> original=List.of(1L,2L,3L);long first=p.next(original,true,r,0,1000);HashSet<Long> shown=new HashSet<>();shown.add(first);List<Long> expanded=List.of(1L,2L,3L,4L,5L);for(int i=0;i<4;i++)assertTrue(shown.add(p.next(expanded,true,r,0,1000)));assertEquals(5,shown.size());}
+    @Test public void removedItemsNeverReturn(){Playback p=new Playback();Random r=new Random();p.next(List.of(1L,2L,3L),true,r,0,1000);for(int i=0;i<30;i++)assertEquals(2,p.next(List.of(2L),true,r,0,1000));}
+    @Test public void emptyLibraryClearsCurrentAndDeadline(){Playback p=new Playback();p.current=10;p.next(List.of(),true,new Random(),0,100);assertEquals(-1,p.current);assertEquals(0,p.due);}
+    @Test public void sequentialOrderWraps(){Playback p=new Playback();List<Long> ids=List.of(9L,5L,2L);assertEquals(9,p.next(ids,false,new Random(),0,10));assertEquals(5,p.next(ids,false,new Random(),0,10));assertEquals(2,p.next(ids,false,new Random(),0,10));assertEquals(9,p.next(ids,false,new Random(),0,10));}
+    @Test public void previousUsesOneSlotWithoutConsumingShuffleBag(){Playback p=new Playback();List<Long> ids=List.of(1L,2L,3L);p.next(ids,true,new Random(2),0,100);long first=p.current;p.next(ids,true,new Random(2),0,100);int remaining=p.bag.size();p.previous(1000,2000,ids);assertEquals(first,p.current);assertEquals(remaining,p.bag.size());assertEquals(3000,p.due);}
+    @Test public void timerAndUnlockModesAreDistinct(){Playback p=new Playback();p.due=500;assertFalse(p.shouldAdvance("timer","unlock",600));assertTrue(p.shouldAdvance("timer","timer",600));assertFalse(p.shouldAdvance("unlock","timer",600));assertTrue(p.shouldAdvance("both","unlock",600));assertTrue(p.shouldAdvance("both","timer",600));assertTrue(p.shouldAdvance("wake","wake",600));assertFalse(p.shouldAdvance("wake","unlock",600));}
+    @Test public void pauseAndHoldSuppressAutomaticChanges(){Playback p=new Playback();p.due=100;p.holdUntil=500;assertFalse(p.shouldAdvance("both","unlock",499));assertTrue(p.shouldAdvance("both","unlock",500));p.paused=true;assertFalse(p.shouldAdvance("both","timer",1000));}
+    @Test public void delayedTimerAdvancesOnceAndReschedulesFromNow(){Playback p=new Playback();p.due=100;assertTrue(p.shouldAdvance("timer","timer",100000));p.next(List.of(1L,2L),true,new Random(),100000,60000);assertFalse(p.shouldAdvance("timer","timer",100001));assertEquals(160000,p.due);}
+    @Test public void screensHaveIndependentQueuesAndClocks(){Playback home=new Playback(),lock=new Playback();home.next(List.of(1L,2L),true,new Random(1),100,1000);lock.next(List.of(3L,4L),true,new Random(1),100,2000);home.paused=true;assertFalse(lock.paused);assertEquals(1100,home.due);assertEquals(2100,lock.due);assertTrue(home.current<3);assertTrue(lock.current>=3);}
+    @Test public void manualSelectionDoesNotRepeatInSameShuffleCycle(){Playback p=new Playback();List<Long> ids=List.of(1L,2L,3L);p.choose(2,0,100);HashSet<Long> next=new HashSet<>();next.add(p.next(ids,true,new Random(4),0,100));next.add(p.next(ids,true,new Random(4),0,100));assertEquals(Set.of(1L,3L),next);}
+}
