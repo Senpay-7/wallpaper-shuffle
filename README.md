@@ -3,7 +3,7 @@
 A native Android live wallpaper that shuffles my own photos, GIFs and videos on the home and lock screens. No ads, no network permission, no accounts, no analytics. I built it because every wallpaper app I tried was full of ads or needed internet access.
 
 > Personal project, built with AI coding assistants under my direction: I wrote the requirements, reviewed the code, ran the tests and tested the builds.
-> A later Kotlin / Jetpack Compose rewrite with a home-screen widget lives in [wallshift](https://github.com/Senpay-7/wallshift).
+> Its successor, a Kotlin / Jetpack Compose rewrite with instant double-tap changes and 66 tests, is [wallshift](https://github.com/Senpay-7/wallshift).
 
 ## Features
 - Separate **home-screen and lock-screen** playback; mark each file Home / Lock / Both / Hidden.
